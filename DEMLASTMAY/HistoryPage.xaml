@@ -1,0 +1,41 @@
+﻿<Page x:Class="DEMLASTMAY.HistoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEMLASTMAY"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HistoryPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="История входа" HorizontalAlignment="Center" FontSize="25" FontFamily="Comic Sans MS" Foreground="#498c51"></TextBlock>
+        <WrapPanel Orientation="Horizontal" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите логин: " Width="175" TextAlignment="Center"></TextBlock>
+                <ComboBox Width="224" Name="ComboFilter" SelectionChanged="ComboFilter_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Дата" Width="175" TextAlignment="Center"></TextBlock>
+                <ComboBox Width="224" Name="DateSort" SelectionChanged="DateSort_SelectionChanged">
+                    <TextBlock>Сначала старые</TextBlock>
+                    <TextBlock>Сначала новые</TextBlock>
+                </ComboBox>
+            </StackPanel>
+        </WrapPanel>
+        <DataGrid Name="GridHistory" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="Логин пользователя" Binding="{Binding EmployeeLogin}"></DataGridTextColumn>
+                <DataGridTextColumn Width="1*" Header="Статус входа" Binding="{Binding LoginStatus}"></DataGridTextColumn>
+                <DataGridTextColumn Width="1*" Header="Дата входа" Binding="{Binding EmployeeDataLogin}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="3" Content="Назад" Click="BtnBackHistory_Click" Name="BtnBackHistory" Width="100" Height="30" Background="#498c51" Foreground="#fff" HorizontalAlignment="Right" Margin="5"></Button>
+    </Grid>
+</Page>

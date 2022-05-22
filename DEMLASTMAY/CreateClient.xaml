@@ -1,0 +1,78 @@
+﻿<Window x:Class="DEMLASTMAY.CreateClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEMLASTMAY"
+        mc:Ignorable="d"
+        Title="CreateClient" Height="450" Width="800">
+    <Grid>
+        <WrapPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 20">
+                <TextBlock Text="Код клиента" Height="20"></TextBlock>
+                <TextBox x:Name="codeClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                    <TextBlock Text="Фамилия" Height="20"></TextBlock>
+                    <TextBox x:Name="surnameClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Имя" Height="20"></TextBlock>
+                    <TextBox x:Name="nameClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Отчество" Height="20"></TextBlock>
+                    <TextBox x:Name="patronicClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <WrapPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                    <TextBlock Text="Индекс" Height="20"></TextBlock>
+                    <TextBox x:Name="indexClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Город" Height="20"></TextBlock>
+                    <TextBox x:Name="cityClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Улица" Height="20"></TextBlock>
+                    <TextBox x:Name="streetClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                    <TextBlock Text="Дом" Height="20"></TextBlock>
+                    <TextBox x:Name="houseClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Квартира" Height="20"></TextBlock>
+                    <TextBox x:Name="flatClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+            </WrapPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                <TextBlock Text="Дата рождения" Height="20"></TextBlock>
+                <TextBox x:Name="dateClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                    <TextBlock Text="Серия" Height="20"></TextBlock>
+                    <TextBox x:Name="seriaClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Номер" Height="20"></TextBlock>
+                    <TextBox x:Name="numberClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 0">
+                    <TextBlock Text="Email" Height="20"></TextBlock>
+                    <TextBox x:Name="emailClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20 0 0 0">
+                    <TextBlock Text="Password" Height="20"></TextBlock>
+                    <TextBox x:Name="passwordClient" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <Button Content="Добавить" Name="addClint" Click="addClint_Click"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,40 @@
+﻿<Page x:Class="DEMLASTMAY.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEMLASTMAY"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Оформление заказа" HorizontalAlignment="Center" FontSize="25" FontFamily="Comic Sans MS" Foreground="#498c51"></TextBlock>
+        <WrapPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 20">
+                <TextBlock Text="Номер заказа" Height="20"></TextBlock>
+                <TextBox x:Name="numberOrder" Width="200" Height="30" HorizontalAlignment="Left"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 20">
+                <TextBlock Text="Клиент" Height="20"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="comboClient" Width="200" IsEditable="True" StaysOpenOnEdit="True"  Height="30" HorizontalAlignment="Left" DisplayMemberPath="ClientCode"></ComboBox>
+                    <Button Content="Создать" Margin="10 0 0 0" Padding="10 0 10 0" Name="createClient" Click="createClient_Click"></Button>
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0 0 0 20">
+                <TextBlock Text="Услуги" Height="20"></TextBlock>
+                <ComboBox x:Name="comboService" Width="200" Height="30" IsEditable="True" StaysOpenOnEdit="True" HorizontalAlignment="Left" DisplayMemberPath="ServiceName"></ComboBox>
+            </StackPanel>
+            <Button Content="Оформить" Click="BtnOrder_Click" Name="BtnOrder" Width="100" Height="30" Background="#498c51" Foreground="#fff" HorizontalAlignment="Center" Margin="5"></Button>
+        </WrapPanel>
+        
+        <Button Grid.Row="2" Content="Назад" Click="BtnBackOrder_Click" Name="BtnBackOrder" Width="100" Height="30" Background="#498c51" Foreground="#fff" HorizontalAlignment="Right" Margin="5"></Button>
+    </Grid>
+</Page>

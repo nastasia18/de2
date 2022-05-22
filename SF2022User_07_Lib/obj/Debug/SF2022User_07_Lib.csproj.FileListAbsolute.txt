@@ -1,0 +1,6 @@
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\bin\Debug\SF2022User_07_Lib.dll
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\bin\Debug\SF2022User_07_Lib.pdb
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\obj\Debug\SF2022User_07_Lib.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\obj\Debug\SF2022User_07_Lib.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\obj\Debug\SF2022User_07_Lib.dll
+C:\Users\ASUS\source\repos\DEMLASTMAY\SF2022User_07_Lib\obj\Debug\SF2022User_07_Lib.pdb

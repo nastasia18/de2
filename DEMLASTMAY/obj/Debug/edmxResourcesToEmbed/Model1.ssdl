@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище demLastMayModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClientSurname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientFirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPatronymic" Type="nvarchar(max)" />
+    <Property Name="ClientPassportSeries" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ClientPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="ClientDateBirthday" Type="date" />
+    <Property Name="ClientIndex" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="ClientCity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientStreet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientHouse" Type="nvarchar" MaxLength="10" />
+    <Property Name="ClientFlat" Type="int" Nullable="false" />
+    <Property Name="ClientEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="EmployeeSurname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeeFirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeePatronymic" Type="nvarchar(max)" />
+    <Property Name="EmployeeLogin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeePassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeeDataLogin" Type="datetime" Nullable="false" />
+    <Property Name="EmployeeImagePath" Type="nvarchar(max)" />
+    <Property Name="EmployeeStatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeePost">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpoyeeHistory">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeLogin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoginStatus" Type="bit" Nullable="false" />
+    <Property Name="EmployeeDataLogin" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderDateCreate" Type="date" Nullable="false" />
+    <Property Name="OrderTimeCreate" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrderStatus" Type="int" Nullable="false" />
+    <Property Name="OrderDateClose" Type="date" />
+    <Property Name="OrderTimeRent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderService">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusItem" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServiceCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="ServicePrice" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Employee_EmployeePost">
+    <End Role="EmployeePost" Type="Self.EmployeePost" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeePost">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientCode" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ClientCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderService_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderService_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="OrderService">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище demLastMayModelContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeePost" EntityType="Self.EmployeePost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpoyeeHistory" EntityType="Self.EmpoyeeHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderService" EntityType="Self.OrderService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Employee_EmployeePost" Association="Self.FK_Employee_EmployeePost">
+      <End Role="EmployeePost" EntitySet="EmployeePost" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderService_Order" Association="Self.FK_OrderService_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderService" EntitySet="OrderService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderService_Service" Association="Self.FK_OrderService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="OrderService" EntitySet="OrderService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

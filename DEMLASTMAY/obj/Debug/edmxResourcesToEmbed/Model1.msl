@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище demLastMayModelContainer" CdmEntityContainer="demLastMayEntities1">
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="demLastMayModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="ClientFirstName" ColumnName="ClientFirstName" />
+          <ScalarProperty Name="ClientPatronymic" ColumnName="ClientPatronymic" />
+          <ScalarProperty Name="ClientPassportSeries" ColumnName="ClientPassportSeries" />
+          <ScalarProperty Name="ClientPassportNumber" ColumnName="ClientPassportNumber" />
+          <ScalarProperty Name="ClientDateBirthday" ColumnName="ClientDateBirthday" />
+          <ScalarProperty Name="ClientIndex" ColumnName="ClientIndex" />
+          <ScalarProperty Name="ClientCity" ColumnName="ClientCity" />
+          <ScalarProperty Name="ClientStreet" ColumnName="ClientStreet" />
+          <ScalarProperty Name="ClientHouse" ColumnName="ClientHouse" />
+          <ScalarProperty Name="ClientFlat" ColumnName="ClientFlat" />
+          <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+          <ScalarProperty Name="ClientPassword" ColumnName="ClientPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="demLastMayModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="EmployeePatronymic" ColumnName="EmployeePatronymic" />
+          <ScalarProperty Name="EmployeeLogin" ColumnName="EmployeeLogin" />
+          <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="EmployeeDataLogin" ColumnName="EmployeeDataLogin" />
+          <ScalarProperty Name="EmployeeImagePath" ColumnName="EmployeeImagePath" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeePost">
+      <EntityTypeMapping TypeName="demLastMayModel.EmployeePost">
+        <MappingFragment StoreEntitySet="EmployeePost">
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="PostName" ColumnName="PostName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpoyeeHistory">
+      <EntityTypeMapping TypeName="demLastMayModel.EmpoyeeHistory">
+        <MappingFragment StoreEntitySet="EmpoyeeHistory">
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+          <ScalarProperty Name="EmployeeLogin" ColumnName="EmployeeLogin" />
+          <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+          <ScalarProperty Name="EmployeeDataLogin" ColumnName="EmployeeDataLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="demLastMayModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="OrderDateCreate" ColumnName="OrderDateCreate" />
+          <ScalarProperty Name="OrderTimeCreate" ColumnName="OrderTimeCreate" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDateClose" ColumnName="OrderDateClose" />
+          <ScalarProperty Name="OrderTimeRent" ColumnName="OrderTimeRent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="demLastMayModel.OrderStatus">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="OrderStatusItem" ColumnName="OrderStatusItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="demLastMayModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="demLastMayModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="OrderService" TypeName="demLastMayModel.OrderService" StoreEntitySet="OrderService">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+      </EndProperty>
+      <EndProperty Name="Service">
+        <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
