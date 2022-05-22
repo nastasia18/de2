@@ -1,0 +1,40 @@
+public class UnitTest1
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            var calculations = new Calculations();
+
+            TimeSpan[] startTimes = new[] {TimeSpan.Parse("10:00"),
+                TimeSpan.Parse("11:00"),
+                TimeSpan.Parse("15:00"),
+                TimeSpan.Parse("15:30"),
+                TimeSpan.Parse("16:50")};
+            int[] durations = new[] { 60, 30, 10, 10, 40 };
+            TimeSpan beginWorkingTime = TimeSpan.Parse("8:00");
+            TimeSpan endWorkingTime = TimeSpan.Parse("18:00");
+            int consultationTime = 30;
+
+            var result = calculations.AvailablePeriods(startTimes, durations, beginWorkingTime, endWorkingTime, consultationTime);
+
+            var assertResult = new[] {"08:00-08:30",
+                "08:30-09:00",
+                "09:00-09:30",
+                "09:30-10:00",
+                "11:30-12:00",
+                "12:00-12:30",
+                "12:30-13:00",
+                "13:00-13:30",
+                "13:30-14:00",
+                "14:00-14:30",
+                "14:30-15:00",
+                "15:40-16:10",
+                "16:10-16:40",
+                "17:30-18:00"};
+
+            for (var i = 0; i < assertResult.Length; i++)
+            {
+                Assert.AreEqual(assertResult[i], result[i]);
+            }
+        }
+    }
